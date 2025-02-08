@@ -1,10 +1,13 @@
-from PyPDF2 import PdfReader, PdfWriter
+def formated_items(groceries):
+    items_list = groceries.split(",")
+    new_list = []
 
-reader = PdfReader("input.pdf")
-writer = PdfWriter()
+    for items in items_list:
+        items = items.strip()
+        new_list.append(items)
+    
+    return new_list
 
-for page in reader.pages:
-    writer.add_page(page)
+groceries = formated_items(input("Enter an item and its price (Milk, £2): "))
 
-with open("compressed.pdf", "wb") as f:
-    writer.write(f)
+print(groceries)
