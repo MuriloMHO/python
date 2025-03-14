@@ -249,7 +249,7 @@ class AlienInvasion:
         self.sb.show_score()
 
         # Draw the level information.
-        self.sb.show_level()
+        self.sb.show_level_ship()
 
         for bullet in self.bullet.sprites():
             bullet.draw_bullet()
