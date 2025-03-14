@@ -25,7 +25,7 @@ class Scoreboard:
 
         #Prepare the initial level image and ship images.
         self.prep_level()
-        self.prep_ship
+        self.prep_ship()
 
     def prep_score(self):
         """Turn the score into a rendered image"""
