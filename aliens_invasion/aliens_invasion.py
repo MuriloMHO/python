@@ -141,15 +141,15 @@ class AlienInvasion:
     def _check_bullet_alien_collisions(self):
         """Respond to bullet-alien collisions"""
         # Remove any bullets and aliens that have been collided.
-        collisions = pygame.sprite.groupcollide(
-            self.bullet, self.alien, False, True
-        )
+        collisions = pygame.sprite.groupcollide(self.bullet, self.alien, True, True)
 
         if not self.alien:
             # Destroy existing bullets and create new fleet.
             self.bullet.empty()
             self._create_fleet()
             self.settings.increase_speed()
+            self.stats.level += 1
+            self.sb.prep_level()
 
     def _update_aliens(self):
         """Check if the fleet is at an edge, then update positions."""
@@ -199,7 +199,7 @@ class AlienInvasion:
         alien_width, alien_height = alien.rect.size
 
         current_x, current_y = alien_width, alien_height
-        while current_y < (self.settings.screen_height - 3 * alien_height):
+        while current_y < (self.settings.screen_height - 5 * alien_height):
             while current_x < (self.settings.screen_width - 2 * alien_width):
                 self._create_alien(current_x, current_y)
                 current_x += 2 * alien_width
@@ -207,10 +207,6 @@ class AlienInvasion:
             # Finished a roe; reset x value, and incremet y value.
             current_x = alien_width
             current_y += 2 * alien_height
-
-        self.stats.level += 1
-        self.sb.prep_level()
-
 
     def _create_alien(self, x_position, y_position):
         """Create an alien and place it in the fleet."""
