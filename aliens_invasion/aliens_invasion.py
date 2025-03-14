@@ -99,7 +99,6 @@ class AlienInvasion:
 
             # hide the mouse cursor.
             pygame.mouse.set_visible(False)
-                
         
     def _check_keydown_events(self, event):
         """Responds to keypress."""
