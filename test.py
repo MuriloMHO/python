@@ -1,13 +1,8 @@
-def formated_items(groceries):
-    items_list = groceries.split(",")
-    new_list = []
+import matplotlib.pyplot as plt
 
-    for items in items_list:
-        items = items.strip()
-        new_list.append(items)
-    
-    return new_list
+squares = [1, 2, 4, 9, 16, 25]
 
-groceries = formated_items(input("Enter an item and its price (Milk, £2): "))
+fig, ax = plt.subplots()
+ax.plot(squares)
 
-print(groceries)
+plt.show()
