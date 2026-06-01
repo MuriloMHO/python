@@ -9,4 +9,4 @@ root.geometry("700x500")
 root.title("Your Way Pizza Parlour")
 
 # Initialize the main window of the program
-root.mainloop()
+root.mainloop() 
